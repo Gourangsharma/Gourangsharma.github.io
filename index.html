@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
@@ -8,8 +7,9 @@
     <link rel="stylesheet" href="style.css" />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
-
 <body>
+
+    <!-- Header / Hero -->
     <header>
         <nav>
             <ul>
@@ -22,14 +22,15 @@
         <div class="hero">
             <h1>Gourang Sharma</h1>
             <p class="tagline">Python Developer | Automation | AI/ML Enthusiast</p>
-            <p class="contact">
-                Email: <a href="mailto:gourangs261@gmail.com">gourangs261@gmail.com</a> | 
-                GitHub: <a href="https://github.com/Gourangsharma" target="_blank">github.com/Gourangsharma</a>
-            </p>
+            <div class="contact-buttons">
+                <a href="mailto:gourangs261@gmail.com" class="btn">Email Me</a>
+                <a href="https://github.com/Gourangsharma" target="_blank" class="btn btn-secondary">GitHub</a>
+            </div>
             <button id="darkModeToggle">Toggle Dark Mode</button>
         </div>
     </header>
 
+    <!-- About Section -->
     <section id="about" class="about">
         <h2>About Me</h2>
         <p>I am a Python developer passionate about automation, real-world problem solving, and intelligent assistants.  
@@ -37,35 +38,45 @@
         Open to entry-level roles in backend, automation, or AI/ML teams.</p>
     </section>
 
+    <!-- Skills Section -->
     <section id="skills" class="skills">
         <h2>Technical Skills</h2>
-        <ul>
-            <li><strong>Languages:</strong> Python, SQL (MySQL, PostgreSQL), HTML, CSS, Django</li>
-            <li><strong>Libraries/Frameworks:</strong> Pandas, NumPy, Matplotlib, Seaborn</li>
-            <li><strong>Tools & APIs:</strong> OpenAI API, Subprocess, Git, VS Code, Power BI (basic)</li>
-            <li><strong>Other:</strong> Data Cleaning, Data Analysis, API Integration</li>
-        </ul>
+        <div class="skills-container">
+            <span class="skill-badge">Python</span>
+            <span class="skill-badge">SQL (MySQL, PostgreSQL)</span>
+            <span class="skill-badge">HTML & CSS</span>
+            <span class="skill-badge">Django</span>
+            <span class="skill-badge">Pandas</span>
+            <span class="skill-badge">NumPy</span>
+            <span class="skill-badge">Matplotlib</span>
+            <span class="skill-badge">Seaborn</span>
+            <span class="skill-badge">OpenAI API</span>
+            <span class="skill-badge">Git & VS Code</span>
+            <span class="skill-badge">Power BI</span>
+            <span class="skill-badge">Data Analysis</span>
+        </div>
     </section>
 
+    <!-- Projects Section -->
     <section id="projects" class="projects">
         <h2>Projects</h2>
 
         <div class="project">
             <h3>Voice Assistant – “Virat”</h3>
-            <p>A voice-activated assistant that answers your questions, responds to commands, fetches weather, and much more.</p>
-            <p><a href="https://github.com/Gourangsharma/voice-assistant-virat" target="_blank">View Project on GitHub</a></p>
+            <p>A voice-activated assistant that answers questions, responds to commands, fetches weather, and much more.</p>
+            <a href="https://github.com/Gourangsharma/voice-assistant-virat" target="_blank" class="btn btn-project">View on GitHub</a>
         </div>
 
         <div class="project">
             <h3>WhatsApp ChatBot Automation</h3>
             <p>A Python bot that automates WhatsApp Web messaging using OpenRouter AI model.</p>
-            <p><a href="https://github.com/Gourangsharma/whatsapp-chatbot-python" target="_blank">View Project on GitHub</a></p>
+            <a href="https://github.com/Gourangsharma/whatsapp-chatbot-python" target="_blank" class="btn btn-project">View on GitHub</a>
         </div>
 
         <div class="project">
             <h3>Pizza Hut Sales Analysis (SQL)</h3>
             <p>Analyzed sales data in MySQL to identify trends and insights.</p>
-            <p><a href="https://github.com/Gourangsharma/PizzaHut.sql" target="_blank">View Project on GitHub</a></p>
+            <a href="https://github.com/Gourangsharma/PizzaHut.sql" target="_blank" class="btn btn-project">View on GitHub</a>
         </div>
 
         <div class="project">
@@ -74,11 +85,13 @@
         </div>
     </section>
 
+    <!-- Resume Section -->
     <section id="resume" class="resume">
         <h2>Resume</h2>
-        <p><a href="Gourang_resume.pdf" download>Download My Resume (PDF)</a></p>
+        <a href="Gourang_resume.pdf" download class="btn btn-resume">Download My Resume (PDF)</a>
     </section>
 
+    <!-- Footer -->
     <footer>
         © 2025 Gourang Sharma. All Rights Reserved.
     </footer>
@@ -88,8 +101,13 @@
         document.querySelectorAll('nav a').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+                const headerOffset = document.querySelector('header').offsetHeight;
+                const elementPosition = document.querySelector(this.getAttribute('href')).offsetTop;
+                const offsetPosition = elementPosition - headerOffset + 10;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: "smooth"
                 });
             });
         });
@@ -101,6 +119,7 @@
         });
     </script>
 </body>
-
 </html>
+
+
 
